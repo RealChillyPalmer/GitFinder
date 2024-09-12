@@ -6,7 +6,7 @@ import { CgAddR, CgCloseR } from 'react-icons/cg';
 
 type CandieCardProps = {
     currentCandie: Candidate;
-    addToPotCandies?: (() => void) | null;
+    hasPotential?: (() => void) | null;
     noPotential?: (() => void) | null;
     onPotCandieList?: boolean | null;
     removeFromList?:
@@ -20,7 +20,7 @@ type CandieCardProps = {
 
 const CandieCard = ({
     currentCandie,
-    addToPotCandies,
+    hasPotential,
     noPotential,
     onPotCandieList,
     removeFromList,
@@ -44,7 +44,7 @@ const CandieCard = ({
                     {onPotCandieList ? (
                         <aside className='icons'>
                             <ImCross
-                                style={{ fontSize: '40px', cursor: 'pointer' }}
+                                style={{ fontSize: '30px', cursor: 'pointer' }}
                                 onClick={(e: React.MouseEvent<SVGSVGElement, MouseEvent>) =>
                                     removeFromList?.(
                                         e,
@@ -58,7 +58,7 @@ const CandieCard = ({
                         <aside className='icons'>
                             <CgAddR id='plusButton'
                                 style={{ fontSize: '50px', cursor: 'pointer', margin: '20px 100px' }}
-                                onClick={() => addToPotCandies?.()}
+                                onClick={() => hasPotential?.()}
                             />
                             <CgCloseR id='xButton'
                                 style={{ fontSize: '50px', cursor: 'pointer', margin: '20px  100px' }}

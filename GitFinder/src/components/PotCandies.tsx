@@ -17,10 +17,10 @@ const PotCandiesList = ({
     potCandie,
     removeFromList,
 }: PotCandiesProps) => {
-    console.log(potCandie);
+    // console.log(potCandie);
     
 return (
-    <>
+    
         <ul>
             {potCandie.map((candidate) => (
                 <CandieCard
@@ -31,7 +31,7 @@ return (
             />
             ))}
         </ul>
-    </>
+    
 );
 };
 

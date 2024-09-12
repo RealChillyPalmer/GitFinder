@@ -24,7 +24,9 @@ const CandidateSearch = () => {
     }
     parsedCandies.push(currentCandie);
     localStorage.setItem('potCandies', JSON.stringify(parsedCandies));
+    noThanks();
   };
+
    const searchForGithubUser = async (event: FormEvent, github_user: string) => {
     event.preventDefault();
      const data: Candidate = await searchGithubUser(event, github_user);
@@ -45,6 +47,11 @@ const CandidateSearch = () => {
     setCurrentCandie(data);
    };
    
+   const hasPotential = () => {
+    alert('This Candidate has been added to Saved Candidates')
+    addToPotCandies()
+   }
+
    const noPotential = () => {
     alert('This Candidate lacks the Required Potential')
     noThanks();
@@ -75,7 +82,7 @@ const CandidateSearch = () => {
       </section>
       <CandieCard
         currentCandie={currentCandie}
-        addToPotCandies={addToPotCandies}
+        hasPotential={hasPotential}
         noPotential={noPotential}
       />
     </>
